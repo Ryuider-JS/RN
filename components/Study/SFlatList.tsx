@@ -1,79 +1,99 @@
 import {
   FlatList,
-  StatusBar,
+  SafeAreaView,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  TouchableHighlight,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+
+import React from 'react';
 
 const DATA = [
-  {
-    id: '1',
-    name: 'First Item',
-  },
-  {
-    id: '2',
-    name: 'Second Item',
-  },
-  {
-    id: '3',
-    name: 'Third Item',
-  },
+  {key: '1', title: 'Item 1'},
+  {key: '2', title: 'Item 2'},
+  {key: '3', title: 'Item 3'},
 ];
 
-const Item = React.memo(({item, selected}: {item: any; selected: boolean}) => {
-  console.log(`렌더링: ${item.name}, selected: ${selected}`);
+export default function ExtremeSeparatorExample() {
   return (
-    <View
-      key={item.id}
-      style={{
-        padding: 10,
-        backgroundColor: selected ? 'lightblue' : 'white',
-      }}>
-      <Text>{item.name}</Text>
-    </View>
-  );
-});
-
-export default function SFlatList() {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-
-  return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          data={DATA}
-          renderItem={({item}) => (
-            <TouchableOpacity onPress={() => setSelectedId(item.id)}>
-              <Item item={item} selected={item.id === selectedId} />
-            </TouchableOpacity>
-          )}
-          keyExtractor={item => item.id}
-          //   extraData={selectedId}
-        />
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <SafeAreaView>
+      <FlatList
+        data={DATA}
+        ItemSeparatorComponent={({highlighted}) => (
+          <View
+            style={[
+              styles.separator,
+              highlighted && styles.separatorHighlighted,
+            ]}
+          />
+        )}
+        renderItem={({item, separators}) => (
+          <TouchableHighlight
+            underlayColor="#ddd"
+            onPress={() => console.log('Pressed', item.title)}
+            onShowUnderlay={() => {
+              separators.highlight();
+              separators.updateProps('leading', {
+                style: {
+                  height: 6,
+                  backgroundColor: 'blue',
+                },
+              });
+              separators.updateProps('trailing', {
+                style: {
+                  height: 6,
+                  backgroundColor: 'green',
+                },
+              });
+            }}
+            onHideUnderlay={() => {
+              separators.unhighlight();
+              separators.updateProps('leading', {
+                style: {
+                  height: 2,
+                  backgroundColor: 'gray',
+                },
+              });
+              separators.updateProps('trailing', {
+                style: {
+                  height: 2,
+                  backgroundColor: 'gray',
+                },
+              });
+            }}>
+            <View style={styles.item}>
+              <Text>{item.title}</Text>
+            </View>
+          </TouchableHighlight>
+        )}
+        keyExtractor={item => item.key}
+        ListHeaderComponent={() => (
+          <View style={styles.headerFooter}>
+            <Text style={styles.headerFooterText}>리스트 헤더입니다.</Text>
+          </View>
+        )}
+        // 리스트 맨 아래에 고정 렌더링
+        ListFooterComponent={() => (
+          <View style={styles.headerFooter}>
+            <Text style={styles.headerFooterText}>리스트 푸터입니다.</Text>
+          </View>
+        )}
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: 'white',
     padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
   },
-  title: {
-    fontSize: 32,
+  separator: {
+    height: 2,
+    backgroundColor: 'gray',
+  },
+  separatorHighlighted: {
+    backgroundColor: 'red',
   },
 });
