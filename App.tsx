@@ -1,31 +1,27 @@
-import './global.css';
-
-import {Image, ScrollView, Text, TextInput, View} from 'react-native';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import SActivityIndicator from './components/SActivityIndicator';
+import {StyleSheet} from 'react-native';
 
-function App(): React.JSX.Element {
-  return (
-    <SafeAreaView>
-      <ScrollView>
-        <Text>Some text</Text>
-        <View className="items-center">
-          <Text>Some more text</Text>
-          <Image
-            source={{
-              uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-            }}
-            className="w-[200px] h-[200px] "
-          />
-        </View>
-        <TextInput
-          className="border-2 border-black w-[200px] h-[50px] p-2"
-          defaultValue="You can type in me"
-        />
-      </ScrollView>
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={[styles.container, styles.horizontal]}>
+      <SActivityIndicator />
     </SafeAreaView>
-  );
-}
+  </SafeAreaProvider>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
+});
 
 export default App;
