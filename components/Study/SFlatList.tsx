@@ -15,19 +15,30 @@ const DATA = [
   {key: '3', title: 'Item 3'},
 ];
 
+const Header = () => (
+  <View style={styles.headerFooter}>
+    <Text style={styles.headerFooterText}>리스트 헤더입니다.</Text>
+  </View>
+);
+
+const Footer = () => (
+  <View style={styles.headerFooter}>
+    <Text style={styles.headerFooterText}>리스트 푸터입니다.</Text>
+  </View>
+);
+
+const Separator = ({highlighted}: {highlighted: boolean}) => (
+  <View
+    style={[styles.separator, highlighted && styles.separatorHighlighted]}
+  />
+);
+
 export default function ExtremeSeparatorExample() {
   return (
     <SafeAreaView>
       <FlatList
         data={DATA}
-        ItemSeparatorComponent={({highlighted}) => (
-          <View
-            style={[
-              styles.separator,
-              highlighted && styles.separatorHighlighted,
-            ]}
-          />
-        )}
+        ItemSeparatorComponent={Separator}
         renderItem={({item, separators}) => (
           <TouchableHighlight
             underlayColor="#ddd"
@@ -68,17 +79,8 @@ export default function ExtremeSeparatorExample() {
           </TouchableHighlight>
         )}
         keyExtractor={item => item.key}
-        ListHeaderComponent={() => (
-          <View style={styles.headerFooter}>
-            <Text style={styles.headerFooterText}>리스트 헤더입니다.</Text>
-          </View>
-        )}
-        // 리스트 맨 아래에 고정 렌더링
-        ListFooterComponent={() => (
-          <View style={styles.headerFooter}>
-            <Text style={styles.headerFooterText}>리스트 푸터입니다.</Text>
-          </View>
-        )}
+        ListHeaderComponent={Header}
+        ListFooterComponent={Footer}
       />
     </SafeAreaView>
   );
@@ -95,5 +97,13 @@ const styles = StyleSheet.create({
   },
   separatorHighlighted: {
     backgroundColor: 'red',
+  },
+  headerFooter: {
+    padding: 20,
+    backgroundColor: '#f8f8f8',
+  },
+  headerFooterText: {
+    fontSize: 16,
+    color: '#333',
   },
 });
