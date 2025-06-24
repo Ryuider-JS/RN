@@ -1,6 +1,8 @@
 import React from 'react';
-import SFlatList from './components/Study/SFlatList';
+import {Text} from 'react-native';
 
-const App = () => <SFlatList />;
+const App = () => {
+  return <Text>1</Text>;
+};
 
 export default App;
