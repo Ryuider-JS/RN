@@ -3,7 +3,7 @@ import './global.css';
 import React, { useState } from 'react';
 import { SafeAreaView, Text, TextInput, View } from 'react-native';
 
-const App = () => {
+export const App = () => {
   const [title, setTitle] = useState('');
 
   return (
