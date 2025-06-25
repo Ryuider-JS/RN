@@ -1,0 +1,6 @@
+npx --no -- commitlint --edit $1 
+
+if [ $? -ne 0 ]; then
+  echo "🚫 커밋 메시지 형식이 올바르지 않습니다. 앞에 feat, fix, chore 등을 붙여주세요"
+  exit 1
+fi
