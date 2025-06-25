@@ -1,24 +1,11 @@
 import './global.css';
 
-import React, { useState } from 'react';
-import { SafeAreaView, Text, TextInput, View } from 'react-native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export const App = () => {
-  const [title, setTitle] = useState('');
+  const queryClient = new QueryClient();
 
-  return (
-    <SafeAreaView>
-      <View className="flex items-center gap-2 p-4 pt-8 bg-white">
-        <Text className="h-10">{title}</Text>
-        <TextInput
-          className="w-full border-2 rounded-md"
-          onChangeText={(text: string) => {
-            setTitle(text);
-          }}
-        />
-      </View>
-    </SafeAreaView>
-  );
+  return <QueryClientProvider client={queryClient} />;
 };
 
 export default App;
