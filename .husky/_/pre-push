@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# push 전 test 코드짤 때 실행하는 코드
+. "$(dirname "$0")/h"
