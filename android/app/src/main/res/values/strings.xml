@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">react_native</string>
+    <string name="kakao_app_key">ae85c7388ce6d22cfa14ffd65ba19932</string>
 </resources>

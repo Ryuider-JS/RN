@@ -1,4 +1,4 @@
-package com.react_native
+package com.gil.app
 
 import com.facebook.react.ReactActivity
 import android.os.Bundle;
