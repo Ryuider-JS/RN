@@ -1,8 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import { Button, Text, View } from 'react-native';
 
 import { NAVIGATOR } from '../constants/navigator.const';
 import { THomeTabsNavigationProp } from '../types/navigator.type';
-import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
   const navigation = useNavigation<THomeTabsNavigationProp>();

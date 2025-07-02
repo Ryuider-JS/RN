@@ -1,9 +1,10 @@
-import HomeTabs from './tabs/HomeTabs';
-import { NAVIGATOR } from '../constants/navigator.const';
 import { NavigationContainer } from '@react-navigation/native';
-import SafeAreaWrapper from '../components/SafeAreaWrapper';
-import { TRootStackParamList } from '../types/navigator.type';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import SafeAreaWrapper from '../components/SafeAreaWrapper';
+import { NAVIGATOR } from '../constants/navigator.const';
+import { TRootStackParamList } from '../types/navigator.type';
+import HomeTabs from './tabs/HomeTabs';
 
 const RootStack = createStackNavigator<TRootStackParamList>();
 
