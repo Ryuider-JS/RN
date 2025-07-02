@@ -1,4 +1,5 @@
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+
 import { NAVIGATOR } from '../constants/navigator.const';
 
 export type TRootStackParamList = {
