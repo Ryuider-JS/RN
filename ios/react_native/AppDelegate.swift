@@ -2,10 +2,12 @@ import UIKit
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
+import KakaoSDKCommon
 
 @main
 class AppDelegate: RCTAppDelegate {
   override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    KakaoSDK.initSDK(appKey: "ae85c7388ce6d22cfa14ffd65ba19932")
     self.moduleName = "react_native"
     self.dependencyProvider = RCTAppDependencyProvider()
 
@@ -27,4 +29,5 @@ class AppDelegate: RCTAppDelegate {
     Bundle.main.url(forResource: "main", withExtension: "jsbundle")
 #endif
   }
+  
 }
