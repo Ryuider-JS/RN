@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { BOTTOM_TAB, NAVIGATOR } from '../../constants/navigator.const';
-import DeliveryScreen from '../../screens/DeliveryScreen';
-import HomeScreen from '../../screens/HomeScreen';
-import ProfileScreen from '../../screens/ProfileScreen';
+import DeliveryScreen from '../../screens/Delivery';
+import HomeScreen from '../../screens/Home';
+import ProfileScreen from '../../screens/Profile';
 import { THomeTabsParamList } from '../../types/navigator.type';
 
 const HomeTab = createBottomTabNavigator<THomeTabsParamList>();
