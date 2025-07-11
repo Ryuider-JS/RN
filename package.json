@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-native-kakao/core": "^2.4.0",
+    "@react-native-kakao/user": "^2.4.0",
     "@react-native-masked-view/masked-view": "^0.3.2",
+    "@react-native/debugger-frontend": "^0.80.1",
     "@react-navigation/bottom-tabs": "^7.4.2",
     "@react-navigation/native": "^7.1.14",
     "@react-navigation/stack": "^7.4.1",
@@ -46,6 +49,7 @@
     "@types/jest": "^29.5.13",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
+    "babel-plugin-module-resolver": "^5.0.2",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.5.1",
