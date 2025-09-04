@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.9.1)
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
   - fast_float (6.1.4)
@@ -8,6 +9,17 @@ PODS:
   - hermes-engine (0.77.0):
     - hermes-engine/Pre-built (= 0.77.0)
   - hermes-engine/Pre-built (0.77.0)
+  - KakaoSDKAuth (2.22.0):
+    - KakaoSDKCommon (= 2.22.0)
+  - KakaoSDKCommon (2.22.0):
+    - KakaoSDKCommon/Common (= 2.22.0)
+    - KakaoSDKCommon/Network (= 2.22.0)
+  - KakaoSDKCommon/Common (2.22.0)
+  - KakaoSDKCommon/Network (2.22.0):
+    - Alamofire (~> 5.9.0)
+    - KakaoSDKCommon/Common (= 2.22.0)
+  - KakaoSDKUser (2.22.0):
+    - KakaoSDKAuth (= 2.22.0)
   - RCT-Folly (2024.11.18.00):
     - boost
     - DoubleConversion
@@ -1586,6 +1598,51 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNCKakaoCore (2.4.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - KakaoSDKCommon (= 2.22.0)
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNCKakaoUser (2.4.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - KakaoSDKUser (= 2.22.0)
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - RNCKakaoCore
+    - Yoga
   - RNCMaskedView (0.3.2):
     - DoubleConversion
     - glog
@@ -1865,6 +1922,8 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCKakaoCore (from `../node_modules/@react-native-kakao/core`)"
+  - "RNCKakaoUser (from `../node_modules/@react-native-kakao/user`)"
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -1873,6 +1932,10 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -2011,6 +2074,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCKakaoCore:
+    :path: "../node_modules/@react-native-kakao/core"
+  RNCKakaoUser:
+    :path: "../node_modules/@react-native-kakao/user"
   RNCMaskedView:
     :path: "../node_modules/@react-native-masked-view/masked-view"
   RNGestureHandler:
@@ -2023,6 +2090,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
@@ -2030,6 +2098,9 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: eb93e2f488219332457c3c4eafd2738ddc7e80b8
   hermes-engine: 1f783c3d53940aed0d2c84586f0b7a85ab7827ef
+  KakaoSDKAuth: 569b377eda622d93d4575240b8031cd658163eef
+  KakaoSDKCommon: d57127c339fc79e73aa8b236a4c77211c29924f1
+  KakaoSDKUser: 043bcd7e91454ebf3bf64f150c430e6f65f0a08d
   RCT-Folly: e78785aa9ba2ed998ea4151e314036f6c49e6d82
   RCTDeprecation: f5c19ebdb8804b53ed029123eb69914356192fc8
   RCTRequired: 6ae6cebe470486e0e0ce89c1c0eabb998e7c51f4
@@ -2090,6 +2161,8 @@ SPEC CHECKSUMS:
   ReactCodegen: c08a5113d9c9c895fe10f3c296f74c6b705a60a9
   ReactCommon: 1bd2dc684d7992acbf0dfee887b89a57a1ead86d
   RNCAsyncStorage: 79cfba789fca205b204f3ce7948b874500129eb4
+  RNCKakaoCore: b0b12bf37c2a46c2b2a8c35300cabf1c879a675b
+  RNCKakaoUser: 194546cd759675af2d4078ba9115967247a0caee
   RNCMaskedView: 308c763227e237d4d260bd8841870e099572bb3e
   RNGestureHandler: f548d618f6f08e41d8f85f5de8a8e7dfd6c7a673
   RNReanimated: 4ab125a1b0451725bb07b2ef9d567e03b2a85b3f

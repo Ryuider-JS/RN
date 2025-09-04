@@ -1,4 +1,4 @@
-package com.react_native
+package com.gil.app.jeju
 
 import android.app.Application
 import com.facebook.react.PackageList

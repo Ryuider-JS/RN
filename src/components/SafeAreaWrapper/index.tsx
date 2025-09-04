@@ -1,6 +1,6 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { IChildrenProps } from '../../types/common.type';
+import { IChildrenProps } from '@/types/common.type';
 
 const SafeAreaWrapper = ({ children }: IChildrenProps) => {
   return (

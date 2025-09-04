@@ -12,5 +12,22 @@ module.exports = {
         allowUndefined: true,
       },
     ],
+    [
+      'module-resolver',
+      {
+        root: ['./src'],
+        alias: {
+          '@': './src',
+          '@constants': './src/constants',
+          '@components': './src/components',
+          '@screens': './src/screens',
+          '@types': './src/types',
+          '@navigations': './src/navigations',
+          '@utils': './src/utils',
+          '@assets': './src/assets',
+        },
+      },
+    ],
+    ['@babel/plugin-transform-export-namespace-from'],
   ],
 };

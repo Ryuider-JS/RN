@@ -1,10 +1,10 @@
+import { BOTTOM_TAB, NAVIGATOR } from '@constants/navigator.const';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import DeliveryScreen from '@screens/Delivery';
+import HomeScreen from '@screens/Home';
+import ProfileScreen from '@screens/Profile';
 
-import { BOTTOM_TAB, NAVIGATOR } from '../../constants/navigator.const';
-import DeliveryScreen from '../../screens/DeliveryScreen';
-import HomeScreen from '../../screens/HomeScreen';
-import ProfileScreen from '../../screens/ProfileScreen';
-import { THomeTabsParamList } from '../../types/navigator.type';
+import { THomeTabsParamList } from '@/types/navigator.type';
 
 const HomeTab = createBottomTabNavigator<THomeTabsParamList>();
 
