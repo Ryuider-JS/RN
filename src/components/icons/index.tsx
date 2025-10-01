@@ -1,4 +1,4 @@
-import Feather from '@react-native-vector-icons/feather';
+import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
 import React from 'react';
 
 import { IIcon } from '@/types/icon.type';
@@ -9,8 +9,14 @@ import { IIcon } from '@/types/icon.type';
  * @param {string} color - 아이콘 색상
  * @param {number} size - 아이콘 크기
  */
-const Icon = ({ name, color, size }: IIcon) => {
-  return <Feather name={name} size={size} color={color} />;
+const Icon = ({ name, color, size, focused }: IIcon) => {
+  return (
+    <MaterialDesignIcons
+      name={focused ? name : `${name}-outline`}
+      size={size}
+      color={color}
+    />
+  );
 };
 
 export default Icon;

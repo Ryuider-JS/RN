@@ -12,8 +12,8 @@ import { THomeTabsParamList } from '@/types/navigator.type';
 
 const HomeTab = createBottomTabNavigator<THomeTabsParamList>();
 
-const renderTabBarIcon = ({ name, color, size }: IIcon) => {
-  return <Icon name={name} color={color} size={size} />;
+const renderTabBarIcon = ({ name, color, focused }: IIcon) => {
+  return <Icon name={name} color={color} size={28} focused={focused} />;
 };
 
 const HomeTabs = () => {
@@ -24,8 +24,12 @@ const HomeTabs = () => {
         headerShown: false,
         tabBarLabel: BOTTOM_TAB[route.name],
         tabBarActiveTintColor: COLOR.PRIMARY,
-        tabBarIcon: ({ color, size }) =>
-          renderTabBarIcon({ name: route.name, color, size }),
+        tabBarLabelStyle: {
+          fontSize: 14,
+          marginTop: 4,
+        },
+        tabBarIcon: ({ color, focused }) =>
+          renderTabBarIcon({ name: route.name, color, focused }),
       })}>
       <HomeTab.Screen
         name={NAVIGATOR.HOME}

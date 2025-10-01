@@ -2,7 +2,7 @@ export const NAVIGATOR = {
   ROOT: '/',
   HOME: 'home',
   DELIVERY: 'truck',
-  PROFILE: 'user',
+  PROFILE: 'account',
 } as const;
 
 export const BOTTOM_TAB: Record<

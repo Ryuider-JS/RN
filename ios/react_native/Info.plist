@@ -61,7 +61,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Feather.ttf</string>
+		<string>MaterialDesignIcons.ttf</string>
 	</array>
 </dict>
 </plist>
