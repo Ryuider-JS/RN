@@ -1,4 +1,3 @@
-import SafeAreaWrapper from '@components/SafeAreaWrapper';
 import { NAVIGATOR } from '@constants/navigator.const';
 import HomeTabs from '@navigations/tabs/HomeTabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -11,9 +10,7 @@ const RootStack = createStackNavigator<TRootStackParamList>();
 const RootNavigator = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator
-        screenOptions={{ headerShown: false }}
-        screenLayout={SafeAreaWrapper}>
+      <RootStack.Navigator screenOptions={{ headerShown: false }}>
         <RootStack.Screen name={NAVIGATOR.ROOT} component={HomeTabs} />
       </RootStack.Navigator>
     </NavigationContainer>
