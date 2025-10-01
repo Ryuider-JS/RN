@@ -1,9 +1,9 @@
 export const NAVIGATOR = {
   ROOT: '/',
-  HOME: 'Home',
-  DELIVERY: 'Delivery',
-  PROFILE: 'Profile',
-};
+  HOME: 'home',
+  DELIVERY: 'truck',
+  PROFILE: 'user',
+} as const;
 
 export const BOTTOM_TAB: Record<
   (typeof NAVIGATOR)[keyof typeof NAVIGATOR],
@@ -12,4 +12,5 @@ export const BOTTOM_TAB: Record<
   [NAVIGATOR.HOME]: '홈',
   [NAVIGATOR.DELIVERY]: '배송',
   [NAVIGATOR.PROFILE]: '마이페이지',
+  '/': '',
 };

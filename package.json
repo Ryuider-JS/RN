@@ -15,6 +15,7 @@
     "@react-native-kakao/core": "^2.4.0",
     "@react-native-kakao/user": "^2.4.0",
     "@react-native-masked-view/masked-view": "^0.3.2",
+    "@react-native-vector-icons/feather": "^12.3.0",
     "@react-native/debugger-frontend": "^0.80.1",
     "@react-navigation/bottom-tabs": "^7.4.2",
     "@react-navigation/native": "^7.1.14",
