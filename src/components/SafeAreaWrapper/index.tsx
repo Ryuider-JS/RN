@@ -1,12 +1,16 @@
+import React from 'react';
+import { ComponentType } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { IChildrenProps } from '@/types/common.type';
-
-const SafeAreaWrapper = ({ children }: IChildrenProps) => {
-  return (
-    // eslint-disable-next-line react-native/no-inline-styles
-    <SafeAreaView style={{ flex: 1 }}>{children}</SafeAreaView>
-  );
+const withSafeArea = <P extends object>(WrappedComponent: ComponentType<P>) => {
+  const ComponentWithSafeArea = (props: P) => {
+    return (
+      <SafeAreaView className="flex-1">
+        <WrappedComponent {...props} />
+      </SafeAreaView>
+    );
+  };
+  return ComponentWithSafeArea;
 };
 
-export default SafeAreaWrapper;
+export default withSafeArea;

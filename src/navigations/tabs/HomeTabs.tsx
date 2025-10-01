@@ -5,6 +5,7 @@ import HomeScreen from '@screens/Home';
 import ProfileScreen from '@screens/Profile';
 
 import Icon from '@/components/icons';
+import withSafeArea from '@/components/SafeAreaWrapper';
 import { COLOR } from '@/constants/color.const';
 import { IIcon } from '@/types/icon.type';
 import { THomeTabsParamList } from '@/types/navigator.type';
@@ -26,9 +27,18 @@ const HomeTabs = () => {
         tabBarIcon: ({ color, size }) =>
           renderTabBarIcon({ name: route.name, color, size }),
       })}>
-      <HomeTab.Screen name={NAVIGATOR.HOME} component={HomeScreen} />
-      <HomeTab.Screen name={NAVIGATOR.DELIVERY} component={DeliveryScreen} />
-      <HomeTab.Screen name={NAVIGATOR.PROFILE} component={ProfileScreen} />
+      <HomeTab.Screen
+        name={NAVIGATOR.HOME}
+        component={withSafeArea(HomeScreen)}
+      />
+      <HomeTab.Screen
+        name={NAVIGATOR.DELIVERY}
+        component={withSafeArea(DeliveryScreen)}
+      />
+      <HomeTab.Screen
+        name={NAVIGATOR.PROFILE}
+        component={withSafeArea(ProfileScreen)}
+      />
     </HomeTab.Navigator>
   );
 };
