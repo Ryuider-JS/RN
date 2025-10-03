@@ -5,7 +5,7 @@ import HomeScreen from '@screens/Home';
 import ProfileScreen from '@screens/Profile';
 
 import Icon from '@/components/icons';
-import withSafeArea from '@/components/SafeAreaWrapper';
+import withSafeArea from '@/components/safeAreaWrapper';
 import { COLOR } from '@/constants/color.const';
 import { IIcon } from '@/types/icon.type';
 import { THomeTabsParamList } from '@/types/navigator.type';
@@ -13,7 +13,7 @@ import { THomeTabsParamList } from '@/types/navigator.type';
 const HomeTab = createBottomTabNavigator<THomeTabsParamList>();
 
 const renderTabBarIcon = ({ name, color, focused }: IIcon) => {
-  return <Icon name={name} color={color} size={28} focused={focused} />;
+  return <Icon name={name} color={color} size={32} focused={focused} />;
 };
 
 const HomeTabs = () => {
@@ -22,11 +22,17 @@ const HomeTabs = () => {
       initialRouteName={NAVIGATOR.PROFILE}
       screenOptions={({ route }) => ({
         headerShown: false,
+        tabBarShowLabel: false,
         tabBarLabel: BOTTOM_TAB[route.name],
-        tabBarActiveTintColor: COLOR.PRIMARY,
+        tabBarActiveTintColor: COLOR.PRIMARY_500,
         tabBarLabelStyle: {
           fontSize: 14,
           marginTop: 4,
+        },
+        tabBarStyle: {
+          borderTopLeftRadius: 12,
+          borderTopRightRadius: 12,
+          paddingTop: 8,
         },
         tabBarIcon: ({ color, focused }) =>
           renderTabBarIcon({ name: route.name, color, focused }),

@@ -12,7 +12,7 @@ export const getUserWithKakaoId = async (
       .from('users')
       .select('*')
       .eq('kakao_id', kakaoId)
-      .single<TSUser | null>();
+      .maybeSingle<TSUser | null>();
     if (error) {
       throw error;
     }

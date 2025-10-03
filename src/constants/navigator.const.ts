@@ -11,6 +11,6 @@ export const BOTTOM_TAB: Record<
 > = {
   [NAVIGATOR.HOME]: '홈',
   [NAVIGATOR.DELIVERY]: '배송',
-  [NAVIGATOR.PROFILE]: '마이페이지',
+  [NAVIGATOR.PROFILE]: '마이',
   '/': '',
 };

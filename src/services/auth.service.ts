@@ -1,10 +1,7 @@
 import { createAddress } from '@/repository/address.repository';
-import {
-  getKakaoUserData,
-  kakaoLoginWithAuth,
-} from '@/repository/auth.repository';
 import { createUser, getUserWithKakaoId } from '@/repository/user.repository';
 import { createUserAddress } from '@/repository/user_address.repository';
+import { getKakaoUserData, kakaoLoginWithAuth } from '@/services/kakao.service';
 
 export const loginKakao = async () => {
   const kakaoId = await kakaoLoginWithAuth();
