@@ -1,5 +1,5 @@
-import { TCAuthUser } from '@/db/types/users.type';
-import { snakeToCamelObject } from '@/db/types/utils';
+import { User } from '@supabase/supabase-js';
+
 import { supabase } from '@/libs/supabase';
 
 export const getAuthSession = async () => {
@@ -8,10 +8,21 @@ export const getAuthSession = async () => {
   console.log(data);
 };
 
-export const getAuthUser = async (): Promise<TCAuthUser | null> => {
+export const getAuthUser = async (): Promise<User | null> => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  return snakeToCamelObject(user);
+  return user;
 };
+
+// export const updateSessionDataWithAdmin = async (userId: string) => {
+//   const user = await getAuthUser();
+//   const { error } = await supabase.auth.admin.updateUserById(userId, {
+//     ...user,
+//     user_metadata: {
+//       ...user?.user_metadata,
+//       user_id: userId,
+//     },
+//   });
+// };

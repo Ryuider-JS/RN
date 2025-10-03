@@ -1,8 +1,11 @@
-import { IProfileLoginCommon } from '@/types/profile.type';
+import { Text, View } from 'react-native';
 
-const ProfileLoginCommon = ({ data }: IProfileLoginCommon) => {
+import { IProfileLoginCommonProps } from '@/types/profile.type';
+
+const ProfileLoginCommon = ({ data }: IProfileLoginCommonProps) => {
   console.log(data);
-  return <></>;
+  // Todo: session에 DB User PK 저장하기
+  return data ? <View /> : <Text>2</Text>;
 };
 
 export default ProfileLoginCommon;

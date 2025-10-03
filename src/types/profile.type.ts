@@ -1,5 +1,13 @@
-import { TCAuthUser } from '@/db/types/users.type';
+import { TCUser } from '@/db/types/users.type';
 
-export interface IProfileLoginCommon {
-  data: TCAuthUser | null | undefined;
+export interface IProfileLoginCommonProps {
+  data: TCUser | null | undefined;
+}
+
+export interface IUserGetUserProps {
+  kakaoId: string;
+}
+
+export interface IUseGetUserResults extends IProfileLoginCommonProps {
+  isLoading: boolean;
 }
