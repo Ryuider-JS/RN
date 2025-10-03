@@ -4,14 +4,15 @@ import { TCCreateUser, TCUser, TSUser } from '@/db/types/users.type';
 import { camelToSnakeObject, snakeToCamelObject } from '@/db/types/utils';
 import { supabase } from '@/libs/supabase';
 
-export const getUserWithKakaoId = async (
-  kakaoId: string,
+export const getUserWithId = async (
+  tableId: string,
+  id: string,
 ): Promise<TCUser | null> => {
   try {
     const { data, error } = await supabase
       .from('users')
       .select('*')
-      .eq('kakao_id', kakaoId)
+      .eq(tableId, id)
       .maybeSingle<TSUser | null>();
     if (error) {
       throw error;

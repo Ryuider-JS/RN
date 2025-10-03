@@ -8,21 +8,21 @@ export const getAuthSession = async () => {
   console.log(data);
 };
 
-export const getAuthUser = async (): Promise<User | null> => {
+export const getAuthUser = async (): Promise<User> => {
   const {
     data: { user },
+    error,
   } = await supabase.auth.getUser();
-
+  if (error || !user) {
+    throw error;
+  }
   return user;
 };
 
-// export const updateSessionDataWithAdmin = async (userId: string) => {
-//   const user = await getAuthUser();
-//   const { error } = await supabase.auth.admin.updateUserById(userId, {
-//     ...user,
-//     user_metadata: {
-//       ...user?.user_metadata,
-//       user_id: userId,
-//     },
-//   });
-// };
+export const updateSessionData = async (user_id: string) => {
+  await supabase.auth.updateUser({
+    data: {
+      user_id,
+    },
+  });
+};

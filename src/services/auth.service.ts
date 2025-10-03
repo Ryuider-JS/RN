@@ -1,5 +1,6 @@
 import { createAddress } from '@/repository/address.repository';
-import { createUser, getUserWithKakaoId } from '@/repository/user.repository';
+import { updateSessionData } from '@/repository/auth.repository';
+import { createUser, getUserWithId } from '@/repository/user.repository';
 import { createUserAddress } from '@/repository/user_address.repository';
 import { getKakaoUserData, kakaoLoginWithAuth } from '@/services/kakao.service';
 
@@ -8,7 +9,9 @@ export const loginKakao = async () => {
   if (!kakaoId) {
     return null;
   }
-  const data = await getUserWithKakaoId(kakaoId);
+  const data = await getUserWithId('kakao_id', kakaoId);
+  let id: string = '';
+
   if (!data) {
     const { userData, userAddressData, userAddressIsDefaultArray } =
       await getKakaoUserData();
@@ -24,7 +27,12 @@ export const loginKakao = async () => {
       };
     });
 
-    const result = await createUserAddress(userAddressJoinArray);
-    console.log(result);
+    await createUserAddress(userAddressJoinArray);
+
+    id = userId;
+  } else {
+    id = data.id;
   }
+
+  await updateSessionData(id);
 };
