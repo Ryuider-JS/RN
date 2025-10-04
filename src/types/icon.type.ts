@@ -8,3 +8,7 @@ export interface IIconProps {
   color?: TextStyle['color'];
   focused?: boolean;
 }
+
+export interface IBellIcon {
+  name: 'bell-badge' | 'bell';
+}
