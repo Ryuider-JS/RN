@@ -3,6 +3,7 @@ export const NAVIGATOR = {
   HOME: 'home',
   DELIVERY: 'truck',
   PROFILE: 'account',
+  MESSAGE: 'message',
 } as const;
 
 export const BOTTOM_TAB: Record<
@@ -12,5 +13,6 @@ export const BOTTOM_TAB: Record<
   [NAVIGATOR.HOME]: '홈',
   [NAVIGATOR.DELIVERY]: '배송',
   [NAVIGATOR.PROFILE]: '마이',
+  [NAVIGATOR.MESSAGE]: '메세지',
   '/': '',
 };

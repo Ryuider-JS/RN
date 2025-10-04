@@ -7,6 +7,7 @@ import ProfileScreen from '@screens/Profile';
 
 import withSafeArea from '@/components/safeAreaWrapper';
 import { COLOR } from '@/constants/color.const';
+import MessageScreen from '@/screens/Message';
 import { IIconProps } from '@/types/icon.type';
 import { THomeTabsParamList } from '@/types/navigator.type';
 
@@ -50,6 +51,10 @@ const HomeTabs = () => {
       <HomeTab.Screen
         name={NAVIGATOR.DELIVERY}
         component={withSafeArea(DeliveryScreen)}
+      />
+      <HomeTab.Screen
+        name={NAVIGATOR.MESSAGE}
+        component={withSafeArea(MessageScreen)}
       />
       <HomeTab.Screen
         name={NAVIGATOR.PROFILE}

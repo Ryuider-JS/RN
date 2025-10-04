@@ -10,6 +10,7 @@ export type THomeTabsParamList = {
   [NAVIGATOR.HOME]: undefined;
   [NAVIGATOR.DELIVERY]: undefined;
   [NAVIGATOR.PROFILE]: undefined;
+  [NAVIGATOR.MESSAGE]: undefined;
 };
 
 export type THomeTabsNavigationProp =
