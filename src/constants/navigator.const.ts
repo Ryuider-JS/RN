@@ -3,7 +3,7 @@ export const NAVIGATOR = {
   HOME: 'home',
   DELIVERY: 'truck',
   PROFILE: 'account',
-  MESSAGE: 'message',
+  MESSAGE: 'chat',
 } as const;
 
 export const BOTTOM_TAB: Record<

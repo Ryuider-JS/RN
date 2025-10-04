@@ -9,5 +9,17 @@ export const COLOR = {
   PRIMARY_700: '#C2410C',
   PRIMARY_800: '#9A3412',
   PRIMARY_900: '#7C2D12',
+
+  GRAY_50: '#F9FAFB',
+  GRAY_100: '#F3F4F6',
+  GRAY_200: '#E5E7EB',
+  GRAY_300: '#D1D5DB',
+  GRAY_400: '#9CA3AF',
+  GRAY_500: '#6B7280',
+  GRAY_600: '#4B5563',
+  GRAY_700: '#374151',
+  GRAY_800: '#1F2937',
+  GRAY_900: '#111827',
+
   TRANSPARENT: 'transparent',
-};
+} as const;
