@@ -1,22 +1,23 @@
 import { AuthTokenResponse } from '@supabase/supabase-js';
 
-import { TCCreateUser, TSUser } from '@/db/types/users.type';
-import { camelToSnakeObject } from '@/db/types/utils';
+import { TCCreateUser, TCUser, TSUser } from '@/db/types/users.type';
+import { camelToSnakeObject, snakeToCamelObject } from '@/db/types/utils';
 import { supabase } from '@/libs/supabase';
 
-export const getUserWithKakaoId = async (
-  kakaoId: string,
-): Promise<TSUser | null> => {
+export const getUserWithId = async (
+  tableId: string,
+  id: string,
+): Promise<TCUser | null> => {
   try {
     const { data, error } = await supabase
       .from('users')
       .select('*')
-      .eq('kakao_id', kakaoId)
-      .single<TSUser | null>();
+      .eq(tableId, id)
+      .maybeSingle<TSUser | null>();
     if (error) {
       throw error;
     }
-    return data;
+    return snakeToCamelObject(data);
   } catch (error) {
     console.error('getUserWithKakaoId', error);
     return null;

@@ -1,3 +1,5 @@
+import { User } from '@supabase/supabase-js';
+
 import { Tables, TablesInsert, TablesUpdate } from '../database.type';
 import { CamelCaseObject } from './utils';
 
@@ -7,3 +9,5 @@ export type TSCreateUser = TablesInsert<'users'>;
 export type TCCreateUser = CamelCaseObject<TSCreateUser>;
 export type TSUpdateUser = TablesUpdate<'users'>;
 export type TCUpdateUser = CamelCaseObject<TSUpdateUser>;
+
+export type TCAuthUser = CamelCaseObject<User>;

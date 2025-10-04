@@ -1,19 +1,31 @@
 import { BOTTOM_TAB, NAVIGATOR } from '@constants/navigator.const';
+import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DeliveryScreen from '@screens/Delivery';
 import HomeScreen from '@screens/Home';
 import ProfileScreen from '@screens/Profile';
 
-import Icon from '@/components/icons';
-import withSafeArea from '@/components/SafeAreaWrapper';
+import withSafeArea from '@/components/safeAreaWrapper';
 import { COLOR } from '@/constants/color.const';
-import { IIcon } from '@/types/icon.type';
+import MessageScreen from '@/screens/Message';
+import { ITabBarIconProps } from '@/types/icon.type';
 import { THomeTabsParamList } from '@/types/navigator.type';
 
 const HomeTab = createBottomTabNavigator<THomeTabsParamList>();
 
-const renderTabBarIcon = ({ name, color, focused }: IIcon) => {
-  return <Icon name={name} color={color} size={28} focused={focused} />;
+const renderTabBarIcon = ({
+  name,
+  color,
+  size = 32,
+  focused,
+}: ITabBarIconProps) => {
+  return (
+    <MaterialDesignIcons
+      name={focused ? name : `${name}-outline`}
+      size={size}
+      color={color}
+    />
+  );
 };
 
 const HomeTabs = () => {
@@ -22,11 +34,17 @@ const HomeTabs = () => {
       initialRouteName={NAVIGATOR.PROFILE}
       screenOptions={({ route }) => ({
         headerShown: false,
+        tabBarShowLabel: false,
         tabBarLabel: BOTTOM_TAB[route.name],
-        tabBarActiveTintColor: COLOR.PRIMARY,
+        tabBarActiveTintColor: COLOR.PRIMARY_500,
         tabBarLabelStyle: {
           fontSize: 14,
           marginTop: 4,
+        },
+        tabBarStyle: {
+          borderTopLeftRadius: 12,
+          borderTopRightRadius: 12,
+          paddingTop: 8,
         },
         tabBarIcon: ({ color, focused }) =>
           renderTabBarIcon({ name: route.name, color, focused }),
@@ -38,6 +56,10 @@ const HomeTabs = () => {
       <HomeTab.Screen
         name={NAVIGATOR.DELIVERY}
         component={withSafeArea(DeliveryScreen)}
+      />
+      <HomeTab.Screen
+        name={NAVIGATOR.MESSAGE}
+        component={withSafeArea(MessageScreen)}
       />
       <HomeTab.Screen
         name={NAVIGATOR.PROFILE}
