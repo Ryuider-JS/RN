@@ -11,6 +11,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@langchain/core": "^0.3.78",
+    "@langchain/openai": "^0.6.14",
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-native-kakao/core": "^2.4.0",
     "@react-native-kakao/user": "^2.4.0",
@@ -23,12 +25,14 @@
     "@supabase/supabase-js": "^2.50.5",
     "@tanstack/react-query": "^5.81.2",
     "clsx": "^2.1.1",
+    "langchain": "^0.3.35",
     "nativewind": "^4.1.23",
     "postgres": "^3.4.7",
     "react": "18.3.1",
     "react-native": "0.77.0",
     "react-native-dotenv": "^3.4.11",
     "react-native-gesture-handler": "^2.26.0",
+    "react-native-get-random-values": "^1.11.0",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-reanimated": "^3.17.5",
     "react-native-safe-area-context": "^5.5.0",
@@ -37,6 +41,7 @@
     "react-native-svg": "^15.8.0",
     "react-native-url-polyfill": "^2.0.0",
     "tailwindcss": "^3.4.17",
+    "web-streams-polyfill": "^4.2.0",
     "zustand": "^5.0.5"
   },
   "devDependencies": {
