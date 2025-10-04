@@ -3,13 +3,15 @@ import { Image, Text, View } from 'react-native';
 
 import { PText } from '@/components/fonts';
 import { COLOR } from '@/constants/color.const';
+import { ICON } from '@/constants/icon.const';
+import { SIZE } from '@/constants/size.const';
 import { IProfileLoginCommonProps } from '@/types/profile.type';
 
 const ProfileLoginCommon = ({ data }: IProfileLoginCommonProps) => {
   const uri =
     !data || !data.profileImageUrl || data.profileImageUrl.includes('default');
   return (
-    <>
+    <View className="flex-row justify-between items-center">
       {data ? (
         <View className="flex-row gap-6">
           {!uri ? (
@@ -20,8 +22,8 @@ const ProfileLoginCommon = ({ data }: IProfileLoginCommonProps) => {
           ) : (
             <View className="justify-center items-center bg-orange-200 rounded-full size-14">
               <MaterialDesignIcons
-                name="account"
-                size={24}
+                name={ICON.USER}
+                size={SIZE.XL}
                 color={COLOR.PRIMARY_400}
               />
             </View>
@@ -34,7 +36,8 @@ const ProfileLoginCommon = ({ data }: IProfileLoginCommonProps) => {
       ) : (
         <Text>2</Text>
       )}
-    </>
+      <MaterialDesignIcons name="chevron-right" />
+    </View>
   );
 };
 

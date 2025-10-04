@@ -2,13 +2,11 @@ import { TextStyle } from 'react-native';
 
 import { THomeTabsParamList } from './navigator.type';
 
-export interface IIconProps {
+export interface ITabBarIconProps {
   name: keyof THomeTabsParamList;
   size?: number;
   color?: TextStyle['color'];
   focused?: boolean;
 }
 
-export interface IBellIcon {
-  name: 'bell-badge' | 'bell';
-}
+export type TIcon = 'bell' | 'chevron-right' | 'account';

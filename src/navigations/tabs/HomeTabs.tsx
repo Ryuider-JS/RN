@@ -8,12 +8,17 @@ import ProfileScreen from '@screens/Profile';
 import withSafeArea from '@/components/safeAreaWrapper';
 import { COLOR } from '@/constants/color.const';
 import MessageScreen from '@/screens/Message';
-import { IIconProps } from '@/types/icon.type';
+import { ITabBarIconProps } from '@/types/icon.type';
 import { THomeTabsParamList } from '@/types/navigator.type';
 
 const HomeTab = createBottomTabNavigator<THomeTabsParamList>();
 
-const renderTabBarIcon = ({ name, color, size = 32, focused }: IIconProps) => {
+const renderTabBarIcon = ({
+  name,
+  color,
+  size = 32,
+  focused,
+}: ITabBarIconProps) => {
   return (
     <MaterialDesignIcons
       name={focused ? name : `${name}-outline`}
