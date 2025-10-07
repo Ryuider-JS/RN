@@ -1,4 +1,10 @@
 import './global.css';
+import 'react-native-get-random-values';
+import 'react-native-url-polyfill/auto';
+
+import { ReadableStream } from 'web-streams-polyfill';
+// eslint-disable-next-line no-undef
+(globalThis as any).ReadableStream = ReadableStream;
 
 import { KAKAO_NATIVE_TEST_APP_KEY } from '@env';
 import { initializeKakaoSDK } from '@react-native-kakao/core';

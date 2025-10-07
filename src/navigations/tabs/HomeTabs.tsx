@@ -31,7 +31,7 @@ const renderTabBarIcon = ({
 const HomeTabs = () => {
   return (
     <HomeTab.Navigator
-      initialRouteName={NAVIGATOR.PROFILE}
+      initialRouteName={NAVIGATOR.MESSAGE}
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: false,
